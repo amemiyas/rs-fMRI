@@ -3,10 +3,10 @@ function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; i=day1 or day
 % https://github.com/TonglabPurdue/Systematic-low-frequency-oscillation-in-fMRI/blob/master/Delay_Map_fMRI/Delay_map.m
  
     dname1=('directory_name');
-    cd (dname1);
+    % cd (dname1);
 for phase=1:2
-    mname0= 'name_of_whole_data_mask';
-    mname= 'name_of_reference_signal_mask';
+    mname0= 'path_to_whole_brain_mask';
+    mname= 'path_to_reference_signal_mask';
     mask0 = spm_read_vols(spm_vol(mname0));
     mask = spm_read_vols(spm_vol(mname));
     [dx, dy, dz] = size(mask0);
@@ -15,10 +15,10 @@ for phase=1:2
     else
         LR='RL';
     end
-    fname='data_file_name';
+    fname='path_to_data_file';
     data = spm_read_vols(spm_vol(fname));
     n = size(data,4); % time points
-    hdr1 = spm_vol(sprintf(fname));
+    hdr1 = spm_vol(fname);
     hdr1 = hdr1(1);
     masked =data.* (mask0>0);
     rdata = reshape(masked, [dx*dy*dz,n]);
