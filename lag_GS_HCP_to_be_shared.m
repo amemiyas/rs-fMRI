@@ -1,4 +1,7 @@
-function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; i=day1 or day2 
+function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; i=day1 or day2
+% upsampling method is adapted from Yunjie Tong's code:
+% https://github.com/TonglabPurdue/Systematic-low-frequency-oscillation-in-fMRI/blob/master/Delay_Map_fMRI/Delay_map.m
+ 
     dname1=('directory_name');
     cd (dname1);
 for phase=1:2
@@ -31,7 +34,7 @@ for phase=1:2
     meants = detrend(mean(dts2),'linear');
 %% Compute TD and R
     TR=0.72;
-    upsampleratio=0.15;
+    upsampleratio=0.15;  % adapted from Yunjie Tong's Delay_map.m
     ratioNtoOld=floor(TR/upsampleratio); %TR/ratioNtoOld = new temporal resolution
     xcorr_range=floor(6/(TR/ratioNtoOld)); % +/- 6 sec 
     ref_ts=detrend(oversample_ts(meants.',ratioNtoOld),'linear');
