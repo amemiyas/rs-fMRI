@@ -1,6 +1,6 @@
 function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; i=day1 or day2 
-dname1=('directory_name');
-cd (dname1);
+    dname1=('directory_name');
+    cd (dname1);
 for phase=1:2
     mname0= 'name_of_whole_data_mask';
     mname= 'name_of_reference_signal_mask';
@@ -30,11 +30,11 @@ for phase=1:2
     dts2 = (detrend(ts2.','linear')).';
     meants = detrend(mean(dts2),'linear');
 %% Compute TD and R
-TR=0.72;
-upsampleratio=0.15;
-ratioNtoOld=floor(TR/upsampleratio); %TR/ratioNtoOld = new temporal resolution
-xcorr_range=floor(6/(TR/ratioNtoOld)); % +/- 6 sec 
-ref_ts=detrend(oversample_ts(meants.',ratioNtoOld),'linear');
+    TR=0.72;
+    upsampleratio=0.15;
+    ratioNtoOld=floor(TR/upsampleratio); %TR/ratioNtoOld = new temporal resolution
+    xcorr_range=floor(6/(TR/ratioNtoOld)); % +/- 6 sec 
+    ref_ts=detrend(oversample_ts(meants.',ratioNtoOld),'linear');
 parfor j=1:s
      ts0 = (dts(j,:)).';
      if (ts0(1,1)~=0)
