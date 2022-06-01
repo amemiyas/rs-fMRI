@@ -1,2 +1,3 @@
 # rs-fMRI
-matlab code to compute voxel-wise time delay and correlation coeffecients.
+Matlab code to compute voxel-wise time delay and correlation coeffecients.
+The code requires SPM for reading and writing NifTI files.
