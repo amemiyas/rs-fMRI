@@ -1,4 +1,4 @@
-function sim_delay1
+function sim_delay_amplitude
 x1=textread('C:\Users\Precision\Desktop\t1.txt','%f');
 nframes=1200;
 TR=0.72;
