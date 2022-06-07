@@ -1,4 +1,4 @@
-function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; i=day1 or day2
+function lag_GS_HCP_to_be_shared(subno,prepost) %subno=subject no; prepost=day1 or day2
 % upsampling method is adapted from Yunjie Tong's code:
 % https://github.com/TonglabPurdue/Systematic-low-frequency-oscillation-in-fMRI/blob/master/Delay_Map_fMRI/Delay_map.m
  
